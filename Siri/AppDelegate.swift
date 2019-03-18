@@ -40,7 +40,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//
+//        return true
+//    }
+    
+    
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        //when the user use this shortcuts, we check if it's the same shortcut?
+        if userActivity.interaction?.intent is SwitchLightsIntent {
+            //whatever the rootcontroller is we cast it to viewcontroller
+            let viewController = window?.rootViewController as! ViewController
+            viewController.toggleFlash()
+            //and if we find a button in that viewcontroller we set it to this
+            viewController.buttonOutlet.backgroundColor = .blue
+       
+        }
+   
+        return true
+    }
 }
+
 
