@@ -7,21 +7,32 @@
 //
 
 import Foundation
+import  UIKit
 
 
-class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling {
+class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
+    
     
     
     func confirm(intent: SwitchLightsIntent,
                  completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-        
+
         completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
 
     }
     
     func handle(intent: SwitchLightsIntent,
                 completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-     
-                completion(SwitchLightsIntentResponse.success(lights: "Lamp"))
+        
+        guard intent.lights != nil else {
+            
+            completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
+            return
         }
+        let vc = ViewController()
+        vc.colorLabel.textColor = .red
+        completion(SwitchLightsIntentResponse.success(lights: "kökslampan", on: "På"))
+
+ 
+    }
 }

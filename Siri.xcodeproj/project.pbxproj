@@ -7,22 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB071760223FE86B006BC651 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
+		EB071762223FEB75006BC651 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F18223FACE600867C28 /* IntentViewController.swift */; };
+		EB071764223FEB79006BC651 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F0C223FACE500867C28 /* IntentHandler.swift */; };
+		EB1986DF2240E64700B0D96E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; };
 		EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF1223FA69400867C28 /* AppDelegate.swift */; };
 		EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 		EB4E3EF7223FA69400867C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4E3EF5223FA69400867C28 /* Main.storyboard */; };
 		EB4E3EF9223FA69500867C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4E3EF8223FA69500867C28 /* Assets.xcassets */; };
 		EB4E3EFC223FA69500867C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4E3EFA223FA69500867C28 /* LaunchScreen.storyboard */; };
-		EB4E3F05223FAB1600867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; };
+		EB4E3F05223FAB1600867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		EB4E3F0D223FACE500867C28 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F0C223FACE500867C28 /* IntentHandler.swift */; };
 		EB4E3F16223FACE600867C28 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4E3F15223FACE600867C28 /* IntentsUI.framework */; };
 		EB4E3F19223FACE600867C28 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F18223FACE600867C28 /* IntentViewController.swift */; };
 		EB4E3F1C223FACE600867C28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4E3F1A223FACE600867C28 /* MainInterface.storyboard */; };
 		EB4E3F20223FACE600867C28 /* IntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB4E3F13223FACE600867C28 /* IntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB4E3F23223FACE600867C28 /* Intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB4E3F0A223FACE500867C28 /* Intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EB4E3F2B223FAD1600867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; };
-		EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; };
+		EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		EB4E3F2E223FAD6000867C28 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
 		EB4E3F2F223FCBB700867C28 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
+		EB5114EC224130D300164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
+		EB5114ED224130E200164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,9 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB071762223FEB75006BC651 /* IntentViewController.swift in Sources */,
 				EB4E3F05223FAB1600867C28 /* Intents.intentdefinition in Sources */,
 				EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */,
 				EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */,
+				EB071764223FEB79006BC651 /* IntentHandler.swift in Sources */,
 				EB4E3F2F223FCBB700867C28 /* SwitchLightsIntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,8 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1986DF2240E64700B0D96E /* Intents.intentdefinition in Sources */,
 				EB4E3F2E223FAD6000867C28 /* SwitchLightsIntentHandler.swift in Sources */,
-				EB4E3F2B223FAD1600867C28 /* Intents.intentdefinition in Sources */,
+				EB5114EC224130D300164F30 /* ViewController.swift in Sources */,
 				EB4E3F0D223FACE500867C28 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +333,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB071760223FE86B006BC651 /* SwitchLightsIntentHandler.swift in Sources */,
 				EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */,
+				EB5114ED224130E200164F30 /* ViewController.swift in Sources */,
 				EB4E3F19223FACE600867C28 /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

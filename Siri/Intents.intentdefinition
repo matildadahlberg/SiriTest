@@ -103,7 +103,7 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Something went wrong when you tried to put ${on}/${off} the ${lights}</string>
+						<string>Something went wrong ${failureReason}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>aOFYm8</string>
 						<key>INIntentResponseCodeName</key>
@@ -113,7 +113,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Success ${lights}</string>
+						<string>Success ${lights} ${on}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>Npubm4</string>
 						<key>INIntentResponseCodeName</key>
@@ -121,9 +121,19 @@
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Success ${lights} ${off}</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>pjBjat</string>
+						<key>INIntentResponseCodeName</key>
+						<string>successOff</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>4</integer>
+				<integer>5</integer>
 				<key>INIntentResponseParameters</key>
 				<array>
 					<dict>
@@ -159,6 +169,18 @@
 						<false/>
 						<key>INIntentResponseParameterTag</key>
 						<integer>3</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>String</string>
+					</dict>
+					<dict>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>4</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>failureReason</string>
+						<key>INIntentResponseParameterSupportsMultipleValues</key>
+						<false/>
+						<key>INIntentResponseParameterTag</key>
+						<integer>5</integer>
 						<key>INIntentResponseParameterType</key>
 						<string>String</string>
 					</dict>

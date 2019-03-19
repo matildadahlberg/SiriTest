@@ -16,4 +16,5 @@ class IntentHandler: INExtension {
         }
         return SwitchLightsIntentHandler()
     }
+    
 }

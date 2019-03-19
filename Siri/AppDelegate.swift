@@ -43,26 +43,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 //
+//        guard userActivity.interaction == nil else  {
+//
+//            let vc = ViewController()
+//            vc.viewWillAppear(false)
+//            return false
+//        }
+//
 //        return true
 //    }
-    
-    
-    func application(_ application: UIApplication,
-                     continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
-        //when the user use this shortcuts, we check if it's the same shortcut?
-        if userActivity.interaction?.intent is SwitchLightsIntent {
-            //whatever the rootcontroller is we cast it to viewcontroller
-            let viewController = window?.rootViewController as! ViewController
-            viewController.toggleFlash()
-            //and if we find a button in that viewcontroller we set it to this
-            viewController.buttonOutlet.backgroundColor = .blue
-       
-        }
-   
-        return true
-    }
+//    
+//    func application(_ application: UIApplication,
+//                     continue userActivity: NSUserActivity,
+//                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//        guard
+//            userActivity.interaction?.intent is SwitchLightsIntent,
+//            let window = window,
+//            let rootViewController = window.rootViewController as? UINavigationController
+//            else {
+//                return false
+//        }
+//        
+//        if rootViewController.viewControllers.count > 1 && rootViewController.viewControllers.last is ViewController {
+//            return false
+//        }
+//        
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        rootViewController.pushViewController(vc, animated: true)
+//        
+//        return true
+//    }
+  
+
 }
 
 

@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSSiriUsageDescription</key>
-	<string>Use Siri</string>
+	<string>This is a siri demo</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>SwitchLightsIntent</string>
