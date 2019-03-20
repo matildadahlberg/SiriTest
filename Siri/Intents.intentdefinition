@@ -22,7 +22,7 @@
 			<key>INIntentDescriptionID</key>
 			<string>sFZIzE</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>7</integer>
+			<integer>9</integer>
 			<key>INIntentName</key>
 			<string>SwitchLights</string>
 			<key>INIntentParameterCombinations</key>
@@ -68,9 +68,9 @@
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
-					<integer>2</integer>
+					<integer>8</integer>
 					<key>INIntentParameterType</key>
-					<string>Object</string>
+					<string>String</string>
 				</dict>
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
@@ -80,9 +80,9 @@
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
-					<integer>7</integer>
+					<integer>9</integer>
 					<key>INIntentParameterType</key>
-					<string>Object</string>
+					<string>String</string>
 				</dict>
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
