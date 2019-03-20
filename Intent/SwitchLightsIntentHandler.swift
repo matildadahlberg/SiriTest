@@ -11,9 +11,7 @@ import  UIKit
 
 
 class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
-    
-    
-    
+
     func confirm(intent: SwitchLightsIntent,
                  completion: @escaping (SwitchLightsIntentResponse) -> Void) {
 
@@ -24,15 +22,13 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
     func handle(intent: SwitchLightsIntent,
                 completion: @escaping (SwitchLightsIntentResponse) -> Void) {
         
-        guard intent.lights != nil else {
-            
-            completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
-            return
-        }
         let vc = ViewController()
-        vc.colorLabel.textColor = .red
-        completion(SwitchLightsIntentResponse.success(lights: "kökslampan", on: "På"))
-
- 
+        let on = vc.switchOutlet.isOn = true
+        let light = vc.label.text
+        
+        
+        completion(SwitchLightsIntentResponse.success(lights: "\(light)", on: "\(on)"))
+        
     }
+
 }

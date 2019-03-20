@@ -18,17 +18,11 @@ import os
 // "Send a message using <myApp>"
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
-    
-    @IBOutlet weak var buttonOutlet: UIButton!
-    
-    @IBOutlet weak var labelcolor: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        toggleFlash()
-        buttonOutlet.layer.cornerRadius = 15
-//        userActivitys()
+    
     }
         
     // MARK: - INUIHostedViewControlling
@@ -48,12 +42,9 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         let width = self.extensionContext?.hostedViewMaximumAllowedSize.width ?? 320
         let desiredSize = CGSize(width: width, height: 300)
 
-        let vc = ViewController()
-        let color = vc.colorLabel.textColor
         
                         DispatchQueue.main.async {
                             
-                            self.labelcolor.textColor = color
                             
                         }
         
@@ -61,60 +52,6 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         
         completion(true, parameters, desiredSize)
     }
-        
-//
-//                        DispatchQueue.main.async {
-//                           self.buttonOutlet.backgroundColor = .red
-//                        }
-//        completion(true, parameters, desiredSize)
-
     
-        
-    
-
-    
-    func toggleFlash() {
-        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
-        guard device.hasTorch else { return }
-        
-        do {
-            try device.lockForConfiguration()
-            
-            
-            do {
-                device.torchMode = AVCaptureDevice.TorchMode.on
-                try device.setTorchModeOn(level: 1.0)
-            } catch {
-                print(error)
-            }
-            
-        } catch {
-            print(error)
-        }
-        
-    }
-
-    
-//    func userActivitys(){
-//
-//        //Create new activity with this unique id
-//        let activity = NSUserActivity(activityType: "com.daresay.Siri.Light")
-//
-//
-//        //set the activity title
-//        activity.title = "Turn on light"
-//        //enabling it for search result in widget menu
-//        activity.isEligibleForSearch = true
-//        //enabling it for so that you dont need to write the whole name in widget menu
-//        activity.isEligibleForPrediction = true
-//
-//        //also add a userInfo dictionary with some payload that will be passed to our app when Siri launches it via shortcut.
-//        activity.userInfo = ["light" : "on"]
-//
-//        //set the current user activity
-//        self.userActivity = activity
-//        //this is to show that the acitvity is actually being used
-//        self.userActivity?.becomeCurrent()
-//    }
     
 }

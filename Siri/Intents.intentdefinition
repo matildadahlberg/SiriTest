@@ -38,7 +38,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Turn the ${lights} ${on}</string>
+					<string>Turn ${on} the ${lights}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>bKr4Wi</string>
 				</dict>
@@ -53,7 +53,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Turn the ${lights} ${off}</string>
+					<string>Turn ${off} the ${lights}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>BSrj1v</string>
 				</dict>
