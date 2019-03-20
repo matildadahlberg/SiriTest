@@ -195,7 +195,7 @@
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentUserConfirmationRequired</key>
-			<false/>
+			<true/>
 			<key>INIntentVerb</key>
 			<string>Do</string>
 		</dict>

@@ -28,28 +28,45 @@ class ViewController: UIViewController {
     
     @IBAction func switchAction(_ sender: Any) {
         donateInteraction()
+        
+        let AppGroup = "group.com.daresay.Siri.Shared"
+        
+        
+        let dataSuite = { () -> UserDefaults in
+            guard let dataSuite = UserDefaults(suiteName: AppGroup) else {
+                fatalError("Could not load UserDefaults for app group \(AppGroup)")
+            }
+            
+            return dataSuite
+        }()
+        
+        guard let defaults = UserDefaults(suiteName: AppGroup) else {return}
+        
+        defaults.synchronize()
+        
+        print("hey")
     }
+ 
     
-    
-   
-    func donateInteraction() {
+    private func donateInteraction() {
         let intent = SwitchLightsIntent()
-        
-        intent.suggestedInvocationPhrase = "Turn on the light"
-        
         let interaction = INInteraction(intent: intent, response: nil)
+        
+       
         
         interaction.donate { (error) in
             if error != nil {
                 if let error = error as NSError? {
                     os_log("Interaction donation failed: %@", log: OSLog.default, type: .error, error)
-                } else {
-                    os_log("Successfully donated interaction")
                 }
+            } else {
+                os_log("Successfully donated interaction")
             }
         }
     }
-
-
+    
+   
+    
+    
 }
 

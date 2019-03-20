@@ -26,8 +26,12 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
         let on = vc.switchOutlet.isOn = true
         let light = vc.label.text
         
-        
+        if vc.switchOutlet.isOn == true {
         completion(SwitchLightsIntentResponse.success(lights: "\(light)", on: "\(on)"))
+        }
+        else{
+            completion(SwitchLightsIntentResponse.failure(failureReason: "doesn't work"))
+        }
         
     }
 

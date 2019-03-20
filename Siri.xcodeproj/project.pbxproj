@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB17FC7322425B3A00B3C6AB /* Intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intent.entitlements; sourceTree = "<group>"; };
 		EB4E3EEE223FA69400867C28 /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E3EF1223FA69400867C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4E3EF3223FA69400867C28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 		EB4E3F0B223FACE500867C28 /* Intent */ = {
 			isa = PBXGroup;
 			children = (
+				EB17FC7322425B3A00B3C6AB /* Intent.entitlements */,
 				EB4E3F0C223FACE500867C28 /* IntentHandler.swift */,
 				EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */,
 				EB4E3F0E223FACE500867C28 /* Info.plist */,
@@ -243,6 +245,9 @@
 					EB4E3EED223FA69400867C28 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};
@@ -250,6 +255,11 @@
 					};
 					EB4E3F09223FACE500867C28 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					EB4E3F12223FACE600867C28 = {
 						CreatedOnToolsVersion = 10.1;
@@ -580,6 +590,7 @@
 		EB4E3F28223FACE600867C28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Intent/Intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA9P9633N5;
 				INFOPLIST_FILE = Intent/Info.plist;
@@ -599,6 +610,7 @@
 		EB4E3F29223FACE600867C28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Intent/Intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA9P9633N5;
 				INFOPLIST_FILE = Intent/Info.plist;
