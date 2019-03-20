@@ -32,13 +32,7 @@ class ViewController: UIViewController {
         let AppGroup = "group.com.daresay.Siri.Shared"
         
         
-        let dataSuite = { () -> UserDefaults in
-            guard let dataSuite = UserDefaults(suiteName: AppGroup) else {
-                fatalError("Could not load UserDefaults for app group \(AppGroup)")
-            }
-            
-            return dataSuite
-        }()
+        
         
         guard let defaults = UserDefaults(suiteName: AppGroup) else {return}
         

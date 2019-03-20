@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import  UIKit
+import UIKit
 
 
 class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
@@ -16,6 +16,8 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
                  completion: @escaping (SwitchLightsIntentResponse) -> Void) {
 
         completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
+        print("completion ready")
+
 
     }
     
@@ -28,9 +30,12 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
         
         if vc.switchOutlet.isOn == true {
         completion(SwitchLightsIntentResponse.success(lights: "\(light)", on: "\(on)"))
+            print("completion succeed")
+
         }
         else{
             completion(SwitchLightsIntentResponse.failure(failureReason: "doesn't work"))
+            print("completion failed")
         }
         
     }

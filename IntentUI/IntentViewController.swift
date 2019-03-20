@@ -45,6 +45,8 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         
                         DispatchQueue.main.async {
                             
+                            let vc = ViewController()
+                            vc.label.text = "OK"
                             
                         }
         

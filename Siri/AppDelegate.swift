@@ -44,18 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     
-            
-            func restoreUserActivityState(_ activity: NSUserActivity) {
-                super.restoreUserActivityState(activity)
+           
+            guard userActivity.interaction == nil else  {
+
+                let vc = ViewController()
+                vc.switchOutlet.isOn = true
                 
-             
+                return false
             }
-//            guard userActivity.interaction == nil else  {
-//
-//                let vc = ViewController()
-//                vc.viewWillAppear(false)
-//                return false
-//            }
     
             return true
         }
