@@ -16,45 +16,43 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
                  completion: @escaping (SwitchLightsIntentResponse) -> Void) {
 
         completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
-        
-        
 
         print("completion ready")
 
 
     }
-    
-//    func handle(intent: SwitchLightsIntent,
-//                completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-//
-//        let vc = ViewController()
-//        let on = vc.switchOutlet.isOn = true
-//        let light = vc.label.text
-//
-//        if vc.switchOutlet.isOn == true {
-//        completion(SwitchLightsIntentResponse.success(lights: "\(light)", on: "\(on)"))
-//            print("completion succeed")
-//
-//        }
-//        else{
-//            completion(SwitchLightsIntentResponse.failure(failureReason: "doesn't work"))
-//            print("completion failed")
-//        }
-//
-//    }
-    
+
+
     func handle(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-        guard let lights = intent.lights else {
+        
+        guard intent.lights != nil else {
             completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
             return
         }
-        guard let on = intent.on else {
+
+        guard intent.on != nil else {
+            completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
+            return
+        }
+        guard intent.off != nil else {
             completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
             return
         }
         
-        completion(SwitchLightsIntentResponse.success(lights: "lights", on: "on"))
+        
+        Shared.cache.lightState = true
+        
+        if Shared.cache.lightState == true {
+            completion(SwitchLightsIntentResponse.success(lights: "lights", on: "on"))
+        }
+//        if Shared.cache.lightState == false {
+//            completion(SwitchLightsIntentResponse.successOff(lights: "lights", off: "off"))
+//        }
+        else {
+            completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
+        }
+        
+        
     }
-
 
 }
