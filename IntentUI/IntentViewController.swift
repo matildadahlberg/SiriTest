@@ -19,6 +19,8 @@ import os
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
 
+    @IBOutlet weak var switchOutlet: UISwitch!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +47,18 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         
                         DispatchQueue.main.async {
                             
-                            let vc = ViewController()
-                            vc.label.text = "OK"
+                            Shared.cache.lightState = self.switchOutlet.isOn
+
+                            
+                            if Shared.cache.lightState == true{
+                                self.switchOutlet.isOn = false
+                                Shared.cache.lightState = false
+                            }
+                            if Shared.cache.lightState == false{
+                                self.switchOutlet.isOn = true
+                                Shared.cache.lightState = true
+
+                            }
                             
                         }
        

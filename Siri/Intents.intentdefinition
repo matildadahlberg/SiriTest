@@ -113,7 +113,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Success ${lights} ${on}</string>
+						<string>Success, the ${lights} is ${on}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>Npubm4</string>
 						<key>INIntentResponseCodeName</key>
@@ -123,7 +123,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Success ${lights} ${off}</string>
+						<string>Success, the ${lights}  is ${off}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>pjBjat</string>
 						<key>INIntentResponseCodeName</key>

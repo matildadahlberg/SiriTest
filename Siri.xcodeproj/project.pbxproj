@@ -75,6 +75,7 @@
 		EB0F92702244EE7500095D11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB0F92752244EED000095D11 /* AppCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCache.swift; sourceTree = "<group>"; };
 		EB0F92792244EEDB00095D11 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		EB0F927D2245169D00095D11 /* IntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentUI.entitlements; sourceTree = "<group>"; };
 		EB17FC7322425B3A00B3C6AB /* Intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intent.entitlements; sourceTree = "<group>"; };
 		EB4E3EEE223FA69400867C28 /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E3EF1223FA69400867C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,8 +157,8 @@
 			children = (
 				EB0F92742244EED000095D11 /* Caches */,
 				EB0F92702244EE7500095D11 /* Constants.swift */,
-				EB0F92792244EEDB00095D11 /* Shared.swift */,
 				EB4E3F03223FAACA00867C28 /* Siri.entitlements */,
+				EB0F92792244EEDB00095D11 /* Shared.swift */,
 				EB4E3EF1223FA69400867C28 /* AppDelegate.swift */,
 				EB4E3EF3223FA69400867C28 /* ViewController.swift */,
 				EB4E3EF5223FA69400867C28 /* Main.storyboard */,
@@ -191,6 +192,7 @@
 		EB4E3F17223FACE600867C28 /* IntentUI */ = {
 			isa = PBXGroup;
 			children = (
+				EB0F927D2245169D00095D11 /* IntentUI.entitlements */,
 				EB4E3F18223FACE600867C28 /* IntentViewController.swift */,
 				EB4E3F1A223FACE600867C28 /* MainInterface.storyboard */,
 				EB4E3F1D223FACE600867C28 /* Info.plist */,
@@ -286,6 +288,11 @@
 					};
 					EB4E3F12223FACE600867C28 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
