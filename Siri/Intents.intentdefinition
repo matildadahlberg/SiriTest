@@ -22,7 +22,7 @@
 			<key>INIntentDescriptionID</key>
 			<string>sFZIzE</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>9</integer>
+			<integer>10</integer>
 			<key>INIntentName</key>
 			<string>SwitchLights</string>
 			<key>INIntentParameterCombinations</key>
@@ -90,9 +90,9 @@
 					<key>INIntentParameterName</key>
 					<string>lights</string>
 					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
+					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>4</integer>
+					<integer>10</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
 				</dict>

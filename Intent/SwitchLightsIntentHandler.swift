@@ -41,6 +41,8 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
        
         
 //        Shared.cache.lightState = true
+        
+        
     
     
         if Shared.cache.lightState == true {
