@@ -13,39 +13,39 @@ import AVFoundation
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
-//    var list : [String] = Shared.cache.lightState
+    var list = Shared.cache.devices
     
-    var list:[(name:String,checked:Bool)] = [(name: Shared.cache.list ,checked: Shared.cache.lightState)]
-    
-    
-    
+    var state = CustomCell()
+ 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switchOutlet: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     
     
-    var pressed = Bool()
+//    var pressed = Bool()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(list)
-    }
+        
+        tableView.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+ 
+            list = Shared.cache.devices
+    
+            print(Shared.cache.devices)
+            print(list)
         
-        pressed = Shared.cache.lightState
+        tableView.reloadData()
         
 //        switchOutlet.isOn = Shared.cache.lightState
-        
-        print(list)
 
-
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,37 +54,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = list[indexPath.row].name
-        
-        
-        if list[indexPath.row].checked == true {
-            cell.backgroundColor = .green
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
 
-        } else {
-            cell.backgroundColor = .red
+
+        cell.label.text = list[indexPath.row].name
+        cell.switchOutlet.isOn = list[indexPath.row].isOn
+        
+        if cell.switchOutlet.isOn == true {
+            donateInteraction()
+
         }
         return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        pressed = true
-        
-        if list[indexPath.row].checked {
-            self.list[indexPath.row].checked = pressed
-            
-        }
-    }
     
     
     
     @IBAction func switchAction(_ sender: Any) {
         donateInteraction()
         
-        Shared.cache.lightState = switchOutlet.isOn
+//        Shared.cache.lightState = switchOutlet.isOn
         
     }
     
@@ -121,10 +110,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let done = UIAlertAction(title: "Done", style: .default) { (_) in
             if alertController.textFields?.first?.text != "" {
-                var lightName = alertController.textFields!.first!.text!
-                self.list.append((name: lightName, checked: self.pressed))
-                self.list = Shared.cache.lightStates 
+                let lightName = alertController.textFields!.first!.text!
+                self.list.append(Device(name: lightName, isOn: self.switchOutlet.isOn))
+                Shared.cache.devices = self.list
                 self.tableView.reloadData()
+                print(self.list)
             }
         }
         
@@ -135,6 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alertController.addAction(done)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
+        
         
         
     }

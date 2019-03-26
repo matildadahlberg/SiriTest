@@ -9,48 +9,46 @@
 import Foundation
 
 protocol Cache {
-    var lightState: Bool {get set}
-    var list: String {get set}
-
-  var lightStates : [String : Bool] {get set}
-
     
+    var devices: [Device] {get set}
 }
 
 private struct CacheKeys {
-    static let LightStateKey = "light_state_key"
-    static let listKey = "list"
-    static let key = "key"
+
+    static let DevicesKey = "devices"
 }
 
 extension UserDefaults: Cache {
     
-    var lightStates: [String : Bool] {
+    var devices: [Device] {
         get {
-            return dictionary(forKey: CacheKeys.key) as! [String : Bool]
-        }
-        set (newValue) {
-          
-            set(newValue, forKey: CacheKeys.key)
-        }
-    }
-    
-    var list: String {
-        get {
-            return string(forKey: CacheKeys.listKey) ?? ""
+            
+            guard let devicesData = object(forKey: CacheKeys.DevicesKey) as? Data else {
+                print("Failed to read from user defaults")
+                return []
+            }
+            
+            guard let devicesArray = NSKeyedUnarchiver.unarchiveObject(with: devicesData) as? [Device] else {
+                print("Failed to read from user defaults")
+                return []
+            }
+            
+            return devicesArray
         }
         set {
-            set(list, forKey: CacheKeys.listKey)
+            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false) else {
+                assertionFailure("Failed to write to user defaults")
+                return
+            }
+            
+            setValue(data, forKey: CacheKeys.DevicesKey)
         }
     }
-    
-   
- 
-    var lightState: Bool {
-
-        get { return bool(forKey: CacheKeys.LightStateKey) }
-        set { newValue ? set(newValue, forKey: CacheKeys.LightStateKey) : removeObject(forKey: CacheKeys.LightStateKey)}
-    }
-    
    
 }
+
+
+
+
+
+

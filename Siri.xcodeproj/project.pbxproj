@@ -37,6 +37,15 @@
 		EB4E3F2F223FCBB700867C28 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
 		EB5114EC224130D300164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 		EB5114ED224130E200164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
+		EB537CE4224A356A00828E2D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE14B57224A2D2D0009431E /* CustomCell.swift */; };
+		EB537CE5224A356A00828E2D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE14B57224A2D2D0009431E /* CustomCell.swift */; };
+		EB537CE6224A356D00828E2D /* customCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE14B59224A2D410009431E /* customCell.xib */; };
+		EB537CE7224A356E00828E2D /* customCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE14B59224A2D410009431E /* customCell.xib */; };
+		EB537CEA224A510100828E2D /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB537CE9224A510100828E2D /* Device.swift */; };
+		EB537CEB224A516200828E2D /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB537CE9224A510100828E2D /* Device.swift */; };
+		EB537CEC224A516200828E2D /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB537CE9224A510100828E2D /* Device.swift */; };
+		EBE14B58224A2D2D0009431E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE14B57224A2D2D0009431E /* CustomCell.swift */; };
+		EBE14B5A224A2D410009431E /* customCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE14B59224A2D410009431E /* customCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +104,9 @@
 		EB4E3F1B223FACE600867C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EB4E3F1D223FACE600867C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLightsIntentHandler.swift; sourceTree = "<group>"; };
+		EB537CE9224A510100828E2D /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		EBE14B57224A2D2D0009431E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		EBE14B59224A2D410009431E /* customCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +167,7 @@
 		EB4E3EF0223FA69400867C28 /* Siri */ = {
 			isa = PBXGroup;
 			children = (
+				EB537CE8224A50F000828E2D /* Models */,
 				EB0F92742244EED000095D11 /* Caches */,
 				EB0F92702244EE7500095D11 /* Constants.swift */,
 				EB4E3F03223FAACA00867C28 /* Siri.entitlements */,
@@ -162,6 +175,8 @@
 				EB4E3EF1223FA69400867C28 /* AppDelegate.swift */,
 				EB4E3EF3223FA69400867C28 /* ViewController.swift */,
 				EB4E3EF5223FA69400867C28 /* Main.storyboard */,
+				EBE14B57224A2D2D0009431E /* CustomCell.swift */,
+				EBE14B59224A2D410009431E /* customCell.xib */,
 				EB4E3EF8223FA69500867C28 /* Assets.xcassets */,
 				EB4E3EFA223FA69500867C28 /* LaunchScreen.storyboard */,
 				EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */,
@@ -198,6 +213,14 @@
 				EB4E3F1D223FACE600867C28 /* Info.plist */,
 			);
 			path = IntentUI;
+			sourceTree = "<group>";
+		};
+		EB537CE8224A50F000828E2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB537CE9224A510100828E2D /* Device.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +346,7 @@
 			files = (
 				EB4E3EFC223FA69500867C28 /* LaunchScreen.storyboard in Resources */,
 				EB4E3EF9223FA69500867C28 /* Assets.xcassets in Resources */,
+				EBE14B5A224A2D410009431E /* customCell.xib in Resources */,
 				EB4E3EF7223FA69400867C28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB537CE6224A356D00828E2D /* customCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB537CE7224A356E00828E2D /* customCell.xib in Resources */,
 				EB4E3F1C223FACE600867C28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB537CEA224A510100828E2D /* Device.swift in Sources */,
 				EB071762223FEB75006BC651 /* IntentViewController.swift in Sources */,
 				EB4E3F05223FAB1600867C28 /* Intents.intentdefinition in Sources */,
+				EBE14B58224A2D2D0009431E /* CustomCell.swift in Sources */,
 				EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */,
 				EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */,
 				EB0F92712244EE7500095D11 /* Constants.swift in Sources */,
@@ -368,9 +396,11 @@
 				EB0F927B2244EEDB00095D11 /* Shared.swift in Sources */,
 				EB0F92722244EE7500095D11 /* Constants.swift in Sources */,
 				EB1986DF2240E64700B0D96E /* Intents.intentdefinition in Sources */,
+				EB537CEB224A516200828E2D /* Device.swift in Sources */,
 				EB0F92772244EED000095D11 /* AppCache.swift in Sources */,
 				EB4E3F2E223FAD6000867C28 /* SwitchLightsIntentHandler.swift in Sources */,
 				EB5114EC224130D300164F30 /* ViewController.swift in Sources */,
+				EB537CE4224A356A00828E2D /* CustomCell.swift in Sources */,
 				EB4E3F0D223FACE500867C28 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,9 +412,11 @@
 				EB0F927C2244EEDB00095D11 /* Shared.swift in Sources */,
 				EB0F92732244EE7500095D11 /* Constants.swift in Sources */,
 				EB071760223FE86B006BC651 /* SwitchLightsIntentHandler.swift in Sources */,
+				EB537CEC224A516200828E2D /* Device.swift in Sources */,
 				EB0F92782244EED000095D11 /* AppCache.swift in Sources */,
 				EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */,
 				EB5114ED224130E200164F30 /* ViewController.swift in Sources */,
+				EB537CE5224A356A00828E2D /* CustomCell.swift in Sources */,
 				EB4E3F19223FACE600867C28 /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
