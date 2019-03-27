@@ -9,9 +9,9 @@
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>18D109</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>10B61</string>
+	<string>10E125</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>10.1</string>
+	<string>10.2</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -22,7 +22,7 @@
 			<key>INIntentDescriptionID</key>
 			<string>sFZIzE</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>10</integer>
+			<integer>11</integer>
 			<key>INIntentName</key>
 			<string>SwitchLights</string>
 			<key>INIntentParameterCombinations</key>
@@ -90,9 +90,9 @@
 					<key>INIntentParameterName</key>
 					<string>lights</string>
 					<key>INIntentParameterSupportsMultipleValues</key>
-					<true/>
+					<false/>
 					<key>INIntentParameterTag</key>
-					<integer>10</integer>
+					<integer>11</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
 				</dict>

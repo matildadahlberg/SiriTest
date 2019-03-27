@@ -17,35 +17,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var list = Shared.cache.devices
     
-    var pressed = Bool()
-    
-
-    
     @IBOutlet weak var tableView: UITableView!
     
-        
+    
     var lightName = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        list = Shared.cache.devices
 
-        
         tableView.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "cell")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
-//        list = Shared.cache.devices
         
-//        sharedDevices = Shared.cache.devices  
-
         tableView.reloadData()
-        
-        
+ 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,14 +49,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         
-        
         cell.label.text = list[indexPath.row].name
         cell.switchOutlet.isOn = list[indexPath.row].isOn
         
-
-        cell.switchOutlet.addTarget(self, action: #selector(self.switchState(_:)), for: .valueChanged)
+        if Shared.cache.devices[indexPath.row].isOn == true {
+            
+            cell.switchOutlet.isOn = true
+            
+        } else {
+            cell.switchOutlet.isOn = false
+        }
         
-        cell.switchOutlet.tag = indexPath.row
+        //        cell.switchOutlet.tag = indexPath.row
+        //        cell.switchOutlet.addTarget(self, action: #selector(self.switchState(_:)), for: .valueChanged)
         
         return cell
     }
@@ -86,17 +79,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @IBAction func switchAction(_ sender: Any) {
-        donateInteraction()
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //        Shared.cache.lightState = switchOutlet.isOn
+        let sharedDevices = Shared.cache.devices[indexPath.row]
         
+        if sharedDevices.isOn == false {
+            sharedDevices.isOn = true
+            
+            donateInteraction()
+        } else {
+            sharedDevices.isOn = false
+            
+            donateInteraction()
+        }
+        
+        print(sharedDevices)
+        Shared.cache.devices[indexPath.row] = sharedDevices
+        tableView.reloadData()
     }
+    
     
     func donateInteraction() {
         let intent = SwitchLightsIntent()
         intent.suggestedInvocationPhrase = "light"
-        intent.lights = ["lights"]
+        intent.lights = "lights"
         intent.on = "on"
         intent.off = "off"
         
@@ -128,8 +135,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if alertController.textFields?.first?.text != "" {
                 self.lightName = alertController.textFields!.first!.text!
                 self.list.append(Device(name: self.lightName, isOn: false))
-
-
+                
+                
                 Shared.cache.devices = self.list
                 self.tableView.reloadData()
                 print(self.list)
@@ -140,7 +147,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.dismiss(animated: true, completion: nil)
         }
         
-  
+        
         alertController.addAction(done)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
@@ -148,30 +155,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func switchState(_ sender : UISwitch){
-      
-        let sharedDevices = Shared.cache.devices
-
-  
-        for light in sharedDevices {
-            if light.isOn == false {
-                light.isOn = true
-                
-                pressed = true
-                donateInteraction()
-            } else {
-                light.isOn = false
-                
-                pressed = false
-
-            }
-           
-            print(light.isOn)
-
+        
+        if sender.isOn == true {
+            sender.isOn = true
+            
         }
-        Shared.cache.devices = sharedDevices
-
-
-       
+        else {
+            sender.isOn = false
+        }
+        
     }
 }
 
