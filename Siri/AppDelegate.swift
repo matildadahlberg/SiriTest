@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+//        
 //        guard Shared.cache.devices.count > 0 else {
 //            let defaultDevices = [ Device(name: "Device 1", isOn: true),
 //                                   Device(name: "Device 2", isOn: false),

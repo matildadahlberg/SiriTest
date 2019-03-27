@@ -16,27 +16,16 @@ class CustomCell: UITableViewCell {
     
     @IBOutlet weak var table: UIView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-//        switchOutlet.isOn = Shared.cache.devices
-        
-//        Device(name: "", isOn: switchOutlet.isOn)
-
-        
-        
+   
     }
     
     @IBAction func switchAction(_ sender: Any) {
-        
-//        Shared.cache.devices = switchOutlet.isOn
-//        Device(name: "", isOn: switchOutlet.isOn)
-        
-
-
-
-        
+ 
+ 
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
