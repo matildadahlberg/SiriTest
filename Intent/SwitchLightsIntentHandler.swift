@@ -14,6 +14,7 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
     
     func confirm(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
         print("we're confirming stuff")
+        
 
         let weHaveADeviceWithTheRequestedName = Shared.cache.devices.contains(where: { (device) -> Bool in
             return device.name == intent.deviceName
@@ -29,7 +30,8 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
     
     func handle(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
         print("we handling an intent: \n\(intent)")
-
+        
+         
         guard intent.powerState != .unknown else {
             print("powerState was unknown, giving up")
             completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
@@ -53,7 +55,13 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
         }
         
         Shared.cache.devices = changedList
-        completion(SwitchLightsIntentResponse(code: .success, userActivity: nil))
+        if intent.powerState == .on{
+            completion(SwitchLightsIntentResponse.success(deviceName: intent.deviceName!, powerState: .on))
+        }
+        else if intent.powerState == .off {
+            completion(SwitchLightsIntentResponse.success(deviceName: intent.deviceName!, powerState: .off))
+        }
+//        completion(SwitchLightsIntentResponse(code: .success, userActivity: nil))
   }
     
     

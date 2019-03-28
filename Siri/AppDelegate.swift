@@ -15,8 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+//    func application(_ application: UIApplication,
+//                     continue userActivity: NSUserActivity,
+//                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//        
+//        print("I'm \(#function)")
+//
+//        return true
+//    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        print("I'm \(#function)")
+        
         // Override point for customization after application launch.
 //        
 //        guard Shared.cache.devices.count > 0 else {
@@ -33,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, handle intent: INIntent, completionHandler: @escaping (INIntentResponse) -> Void) {
         //
+        print("I'm \(#function)")
+        
         print("main app is handling intent: \(intent)")
         completionHandler(SwitchLightsIntentResponse(code: .success, userActivity: nil))
     }
@@ -59,10 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-        func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-    
-            return true
-        }
     
     
 

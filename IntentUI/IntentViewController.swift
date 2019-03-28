@@ -47,6 +47,8 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         
                         DispatchQueue.main.async {
                             
+                    
+                            
 //                            Shared.cache.lightState = self.switchOutlet.isOn
 //
 //                            
