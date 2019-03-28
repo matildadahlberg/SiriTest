@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB071760223FE86B006BC651 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
 		EB071762223FEB75006BC651 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F18223FACE600867C28 /* IntentViewController.swift */; };
-		EB071764223FEB79006BC651 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F0C223FACE500867C28 /* IntentHandler.swift */; };
 		EB0F92712244EE7500095D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F92702244EE7500095D11 /* Constants.swift */; };
 		EB0F92722244EE7500095D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F92702244EE7500095D11 /* Constants.swift */; };
 		EB0F92732244EE7500095D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F92702244EE7500095D11 /* Constants.swift */; };
@@ -34,7 +32,6 @@
 		EB4E3F23223FACE600867C28 /* Intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB4E3F0A223FACE500867C28 /* Intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		EB4E3F2E223FAD6000867C28 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
-		EB4E3F2F223FCBB700867C28 /* SwitchLightsIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F2D223FAD6000867C28 /* SwitchLightsIntentHandler.swift */; };
 		EB5114EC224130D300164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 		EB5114ED224130E200164F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 		EB537CE4224A356A00828E2D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE14B57224A2D2D0009431E /* CustomCell.swift */; };
@@ -382,10 +379,8 @@
 				EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */,
 				EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */,
 				EB0F92712244EE7500095D11 /* Constants.swift in Sources */,
-				EB071764223FEB79006BC651 /* IntentHandler.swift in Sources */,
 				EB0F927A2244EEDB00095D11 /* Shared.swift in Sources */,
 				EB0F92762244EED000095D11 /* AppCache.swift in Sources */,
-				EB4E3F2F223FCBB700867C28 /* SwitchLightsIntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +406,6 @@
 			files = (
 				EB0F927C2244EEDB00095D11 /* Shared.swift in Sources */,
 				EB0F92732244EE7500095D11 /* Constants.swift in Sources */,
-				EB071760223FE86B006BC651 /* SwitchLightsIntentHandler.swift in Sources */,
 				EB537CEC224A516200828E2D /* Device.swift in Sources */,
 				EB0F92782244EED000095D11 /* AppCache.swift in Sources */,
 				EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */,

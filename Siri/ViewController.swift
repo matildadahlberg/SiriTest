@@ -88,19 +88,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var aDevice = Shared.cache.devices[indexPath.row]
         
         aDevice.isOn = !aDevice.isOn
-        donateInteraction()
+        donateInteraction(device: aDevice)
         
         Shared.cache.devices[indexPath.row] = aDevice
         tableView.reloadData()
     }
     
     
-    func donateInteraction() {
+    func donateInteraction(device: Device) {
         let intent = SwitchLightsIntent()
         intent.suggestedInvocationPhrase = "light"
-        intent.lights = "lights"
-        intent.on = "on"
-        intent.off = "off"
+        intent.powerState = device.isOn ? .on : .off
+        intent.deviceName = device.name
         
         print("donating intent \(intent)")
         

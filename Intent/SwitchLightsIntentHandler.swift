@@ -15,30 +15,44 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
     func confirm(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
         print("we're confirming stuff")
 
-        completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
+        let weHaveADeviceWithTheRequestedName = Shared.cache.devices.contains(where: { (device) -> Bool in
+            return device.name == intent.deviceName
+        })
+        
+        if weHaveADeviceWithTheRequestedName {
+            completion(SwitchLightsIntentResponse(code: .success, userActivity: nil))
+        } else {
+            completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
+        }
     }
     
     
     func handle(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
         print("we handling an intent: \n\(intent)")
 
-        let sharedDevices: [Device] = Shared.cache.devices.map { (immutableLight: Device) in
-            
-            var light = immutableLight // make a mutable copy of the input thing
-
-            if intent.on == "on" {
-                // stuff should turn on
-                light.isOn = true
-            } else {
-                // stuff should turn off
-                light.isOn = false
-            }
-
-            return light
+        guard intent.powerState != .unknown else {
+            print("powerState was unknown, giving up")
+            completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
+            return
         }
         
-        Shared.cache.devices = sharedDevices
+        let changedList = Shared.cache.devices.map { (immutableDevice) -> Device in
+            guard immutableDevice.name == intent.deviceName else {
+                return immutableDevice
+            }
+            
+            var mutableDevice = immutableDevice
+
+            switch intent.powerState {
+            case .on: mutableDevice.isOn = true
+            case .off: mutableDevice.isOn = false
+            case .unknown: ()
+            }
+            
+            return mutableDevice
+        }
         
+        Shared.cache.devices = changedList
         completion(SwitchLightsIntentResponse(code: .success, userActivity: nil))
   }
     

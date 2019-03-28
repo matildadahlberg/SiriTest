@@ -3,7 +3,47 @@
 <plist version="1.0">
 <dict>
 	<key>INEnums</key>
-	<array/>
+	<array>
+		<dict>
+			<key>INEnumName</key>
+			<string>PowerState</string>
+			<key>INEnumType</key>
+			<string>Regular</string>
+			<key>INEnumValues</key>
+			<array>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>unknown</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>xBG97o</string>
+					<key>INEnumValueIndex</key>
+					<integer>0</integer>
+					<key>INEnumValueName</key>
+					<string>unknown</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>off</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>QDrfE4</string>
+					<key>INEnumValueIndex</key>
+					<integer>1</integer>
+					<key>INEnumValueName</key>
+					<string>off</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>on</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>zVaDrg</string>
+					<key>INEnumValueIndex</key>
+					<integer>2</integer>
+					<key>INEnumValueName</key>
+					<string>on</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.0</string>
 	<key>INIntentDefinitionSystemVersion</key>
@@ -22,12 +62,12 @@
 			<key>INIntentDescriptionID</key>
 			<string>sFZIzE</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>11</integer>
+			<integer>12</integer>
 			<key>INIntentName</key>
 			<string>SwitchLights</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>lights,on</key>
+				<key>deviceName,powerState</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
@@ -38,24 +78,9 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Turn ${on} the ${lights}</string>
+					<string>Turn ${powerState} the ${deviceName}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>bKr4Wi</string>
-				</dict>
-				<key>off,lights</key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>852UhZ</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Turn ${off} the ${lights}</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>BSrj1v</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -63,32 +88,22 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterEnumType</key>
+					<string>PowerState</string>
 					<key>INIntentParameterName</key>
-					<string>on</string>
+					<string>powerState</string>
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
-					<integer>8</integer>
+					<integer>12</integer>
 					<key>INIntentParameterType</key>
-					<string>String</string>
+					<string>Integer</string>
 				</dict>
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
 					<key>INIntentParameterName</key>
-					<string>off</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
-					<key>INIntentParameterTag</key>
-					<integer>9</integer>
-					<key>INIntentParameterType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INIntentParameterDisplayPriority</key>
-					<integer>3</integer>
-					<key>INIntentParameterName</key>
-					<string>lights</string>
+					<string>deviceName</string>
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
@@ -113,7 +128,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Success, the ${lights} is ${on}</string>
+						<string>Success, the ${deviceName} is ${powerState}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>Npubm4</string>
 						<key>INIntentResponseCodeName</key>
@@ -121,50 +136,30 @@
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string>Success, the ${lights}  is ${off}</string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>pjBjat</string>
-						<key>INIntentResponseCodeName</key>
-						<string>successOff</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<true/>
-					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>5</integer>
+				<integer>6</integer>
 				<key>INIntentResponseParameters</key>
 				<array>
 					<dict>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>1</integer>
+						<key>INIntentResponseParameterEnumType</key>
+						<string>PowerState</string>
 						<key>INIntentResponseParameterName</key>
-						<string>on</string>
+						<string>powerState</string>
 						<key>INIntentResponseParameterSupportsMultipleValues</key>
 						<false/>
 						<key>INIntentResponseParameterTag</key>
-						<integer>1</integer>
+						<integer>6</integer>
 						<key>INIntentResponseParameterType</key>
-						<string>String</string>
+						<string>Integer</string>
 					</dict>
 					<dict>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>2</integer>
 						<key>INIntentResponseParameterName</key>
-						<string>off</string>
-						<key>INIntentResponseParameterSupportsMultipleValues</key>
-						<false/>
-						<key>INIntentResponseParameterTag</key>
-						<integer>2</integer>
-						<key>INIntentResponseParameterType</key>
-						<string>String</string>
-					</dict>
-					<dict>
-						<key>INIntentResponseParameterDisplayPriority</key>
-						<integer>3</integer>
-						<key>INIntentResponseParameterName</key>
-						<string>lights</string>
+						<string>deviceName</string>
 						<key>INIntentResponseParameterSupportsMultipleValues</key>
 						<false/>
 						<key>INIntentResponseParameterTag</key>
@@ -174,7 +169,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseParameterDisplayPriority</key>
-						<integer>4</integer>
+						<integer>3</integer>
 						<key>INIntentResponseParameterName</key>
 						<string>failureReason</string>
 						<key>INIntentResponseParameterSupportsMultipleValues</key>

@@ -8,6 +8,7 @@
 
 import UIKit
 import os
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         return true
+    }
+
+    func application(_ application: UIApplication, handle intent: INIntent, completionHandler: @escaping (INIntentResponse) -> Void) {
+        //
+        print("main app is handling intent: \(intent)")
+        completionHandler(SwitchLightsIntentResponse(code: .success, userActivity: nil))
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
