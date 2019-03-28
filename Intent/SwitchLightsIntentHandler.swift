@@ -13,49 +13,34 @@ import UIKit
 class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
     
     func confirm(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-        
+        print("we're confirming stuff")
+
         completion(SwitchLightsIntentResponse(code: .ready, userActivity: nil))
-        
-        print("completion ready")
-        
     }
     
     
     func handle(intent: SwitchLightsIntent, completion: @escaping (SwitchLightsIntentResponse) -> Void) {
-        
-        print("handle success")
-        
-                let sharedDevices = Shared.cache.devices
-        
-                for light in sharedDevices {
-                    if light.isOn == true {
-                        completion(SwitchLightsIntentResponse.successOff(lights: "lights", off: "off"))
-        
-                        light.isOn = false
-                    }
-                    else {
-        
-                        completion(SwitchLightsIntentResponse.success(lights: "lights", on: "on"))
-        
-                        light.isOn = true
-                    }
-                    
+        print("we handling an intent: \n\(intent)")
 
-                   
-                }
-                Shared.cache.devices = sharedDevices
-                completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
+        let sharedDevices: [Device] = Shared.cache.devices.map { (immutableLight: Device) in
+            
+            var light = immutableLight // make a mutable copy of the input thing
 
+            if intent.on == "on" {
+                // stuff should turn on
+                light.isOn = true
+            } else {
+                // stuff should turn off
+                light.isOn = false
+            }
 
+            return light
+        }
         
-      
+        Shared.cache.devices = sharedDevices
         
-        //            completion(SwitchLightsIntentResponse.successOff(lights: "lights", off: "off"))
-        
-        //            completion(SwitchLightsIntentResponse(code: .failure, userActivity: nil))
-        
-        
-    }
+        completion(SwitchLightsIntentResponse(code: .success, userActivity: nil))
+  }
     
     
 }

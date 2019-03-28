@@ -86,7 +86,7 @@
 		EB0F92792244EEDB00095D11 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		EB0F927D2245169D00095D11 /* IntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentUI.entitlements; sourceTree = "<group>"; };
 		EB17FC7322425B3A00B3C6AB /* Intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intent.entitlements; sourceTree = "<group>"; };
-		EB4E3EEE223FA69400867C28 /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4E3EEE223FA69400867C28 /* Siri Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Siri Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E3EF1223FA69400867C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4E3EF3223FA69400867C28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4E3EF6223FA69400867C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		EB4E3EEF223FA69400867C28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB4E3EEE223FA69400867C28 /* Siri.app */,
+				EB4E3EEE223FA69400867C28 /* Siri Test.app */,
 				EB4E3F0A223FACE500867C28 /* Intent.appex */,
 				EB4E3F13223FACE600867C28 /* IntentUI.appex */,
 			);
@@ -226,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB4E3EED223FA69400867C28 /* Siri */ = {
+		EB4E3EED223FA69400867C28 /* Siri Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB4E3F00223FA69500867C28 /* Build configuration list for PBXNativeTarget "Siri" */;
+			buildConfigurationList = EB4E3F00223FA69500867C28 /* Build configuration list for PBXNativeTarget "Siri Test" */;
 			buildPhases = (
 				EB4E3EEA223FA69400867C28 /* Sources */,
 				EB4E3EEB223FA69400867C28 /* Frameworks */,
@@ -241,9 +241,9 @@
 				EB4E3F1F223FACE600867C28 /* PBXTargetDependency */,
 				EB4E3F22223FACE600867C28 /* PBXTargetDependency */,
 			);
-			name = Siri;
+			name = "Siri Test";
 			productName = Siri;
-			productReference = EB4E3EEE223FA69400867C28 /* Siri.app */;
+			productReference = EB4E3EEE223FA69400867C28 /* Siri Test.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EB4E3F09223FACE500867C28 /* Intent */ = {
@@ -332,7 +332,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB4E3EED223FA69400867C28 /* Siri */,
+				EB4E3EED223FA69400867C28 /* Siri Test */,
 				EB4E3F09223FACE500867C28 /* Intent */,
 				EB4E3F12223FACE600867C28 /* IntentUI */,
 			);
@@ -710,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB4E3F00223FA69500867C28 /* Build configuration list for PBXNativeTarget "Siri" */ = {
+		EB4E3F00223FA69500867C28 /* Build configuration list for PBXNativeTarget "Siri Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB4E3F01223FA69500867C28 /* Debug */,

@@ -26,14 +26,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
+    
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+            print("app did become active notification received")
+            self?.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
- 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,20 +85,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let sharedDevices = Shared.cache.devices[indexPath.row]
+        var aDevice = Shared.cache.devices[indexPath.row]
         
-        if sharedDevices.isOn == false {
-            sharedDevices.isOn = true
-            
-            donateInteraction()
-        } else {
-            sharedDevices.isOn = false
-            
-            donateInteraction()
-        }
+        aDevice.isOn = !aDevice.isOn
+        donateInteraction()
         
-        print(sharedDevices)
-        Shared.cache.devices[indexPath.row] = sharedDevices
+        Shared.cache.devices[indexPath.row] = aDevice
         tableView.reloadData()
     }
     
@@ -106,6 +101,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         intent.lights = "lights"
         intent.on = "on"
         intent.off = "off"
+        
+        print("donating intent \(intent)")
         
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.groupIdentifier = Constants.AppGroup
