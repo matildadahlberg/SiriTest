@@ -14,16 +14,29 @@ class SiriButtonViewController: UIViewController {
 
     @IBOutlet weak var deviceName: UILabel!
     
+    @IBOutlet weak var buttonviewOn: UIView!
+    
+    @IBOutlet weak var buttonviewOff: UIView!
+    
     var device : Device?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+            print("app did become active notification received")
+        }
 
         deviceName.text = device?.name
-        addSiriButton(to: view)
+        addSiriButton(to: buttonviewOn)
+        siriButton(to: buttonviewOff)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        print(device?.isOn)
+        
     }
     
-    
+
     func addSiriButton(to view: UIView) {
         let button = INUIAddVoiceShortcutButton(style: .whiteOutline)
    
@@ -32,9 +45,24 @@ class SiriButtonViewController: UIViewController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(button)
-        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        buttonviewOn.addSubview(button)
+        buttonviewOn.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        buttonviewOn.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+    }
+    
+    func siriButton(to view: UIView) {
+        let button = INUIAddVoiceShortcutButton(style: .blackOutline)
+        
+        button.shortcut = INShortcut(intent: intents)
+        button.delegate = self
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonviewOff.addSubview(button)
+        
+        buttonviewOff.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        buttonviewOff.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        
     }
 
 }
@@ -45,6 +73,15 @@ extension SiriButtonViewController {
         testIntent.deviceName = device?.name
         testIntent.powerState = .on
         testIntent.suggestedInvocationPhrase = "Turn on the \(device!.name)"
+        return testIntent
+    }
+}
+extension SiriButtonViewController {
+    public var intents: SwitchLightsIntent {
+        let testIntent = SwitchLightsIntent()
+        testIntent.deviceName = device?.name
+        testIntent.powerState = .off
+        testIntent.suggestedInvocationPhrase = "Turn off the \(device!.name)"
         return testIntent
     }
 }
