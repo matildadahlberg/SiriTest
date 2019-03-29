@@ -58,7 +58,6 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      intentQueryString = "Lights on"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -93,7 +92,6 @@
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
-      intentQueryString = "Lights on"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

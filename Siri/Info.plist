@@ -24,6 +24,7 @@
 	<string>This is a siri demo</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>AddShortcutIntent</string>
 		<string>SwitchLightsIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

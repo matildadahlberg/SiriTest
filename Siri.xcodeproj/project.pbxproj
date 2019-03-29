@@ -18,6 +18,9 @@
 		EB0F927B2244EEDB00095D11 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F92792244EEDB00095D11 /* Shared.swift */; };
 		EB0F927C2244EEDB00095D11 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F92792244EEDB00095D11 /* Shared.swift */; };
 		EB1986DF2240E64700B0D96E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3F04223FAB1600867C28 /* Intents.intentdefinition */; };
+		EB4C1D02224E186900F60B4C /* SiriButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C1D01224E186900F60B4C /* SiriButtonViewController.swift */; };
+		EB4C1D05224E1A3E00F60B4C /* SiriButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C1D01224E186900F60B4C /* SiriButtonViewController.swift */; };
+		EB4C1D06224E1A3F00F60B4C /* SiriButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C1D01224E186900F60B4C /* SiriButtonViewController.swift */; };
 		EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF1223FA69400867C28 /* AppDelegate.swift */; };
 		EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E3EF3223FA69400867C28 /* ViewController.swift */; };
 		EB4E3EF7223FA69400867C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4E3EF5223FA69400867C28 /* Main.storyboard */; };
@@ -83,6 +86,7 @@
 		EB0F92792244EEDB00095D11 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		EB0F927D2245169D00095D11 /* IntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentUI.entitlements; sourceTree = "<group>"; };
 		EB17FC7322425B3A00B3C6AB /* Intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intent.entitlements; sourceTree = "<group>"; };
+		EB4C1D01224E186900F60B4C /* SiriButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriButtonViewController.swift; sourceTree = "<group>"; };
 		EB4E3EEE223FA69400867C28 /* Siri Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Siri Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E3EF1223FA69400867C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4E3EF3223FA69400867C28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				EB0F92792244EEDB00095D11 /* Shared.swift */,
 				EB4E3EF1223FA69400867C28 /* AppDelegate.swift */,
 				EB4E3EF3223FA69400867C28 /* ViewController.swift */,
+				EB4C1D01224E186900F60B4C /* SiriButtonViewController.swift */,
 				EB4E3EF5223FA69400867C28 /* Main.storyboard */,
 				EBE14B57224A2D2D0009431E /* CustomCell.swift */,
 				EBE14B59224A2D410009431E /* customCell.xib */,
@@ -310,7 +315,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -379,6 +384,7 @@
 				EB4E3EF4223FA69400867C28 /* ViewController.swift in Sources */,
 				EB4E3EF2223FA69400867C28 /* AppDelegate.swift in Sources */,
 				EB0F92712244EE7500095D11 /* Constants.swift in Sources */,
+				EB4C1D02224E186900F60B4C /* SiriButtonViewController.swift in Sources */,
 				EB0F927A2244EEDB00095D11 /* Shared.swift in Sources */,
 				EB0F92762244EED000095D11 /* AppCache.swift in Sources */,
 			);
@@ -395,6 +401,7 @@
 				EB0F92772244EED000095D11 /* AppCache.swift in Sources */,
 				EB4E3F2E223FAD6000867C28 /* SwitchLightsIntentHandler.swift in Sources */,
 				EB5114EC224130D300164F30 /* ViewController.swift in Sources */,
+				EB4C1D05224E1A3E00F60B4C /* SiriButtonViewController.swift in Sources */,
 				EB537CE4224A356A00828E2D /* CustomCell.swift in Sources */,
 				EB4E3F0D223FACE500867C28 /* IntentHandler.swift in Sources */,
 			);
@@ -409,6 +416,7 @@
 				EB537CEC224A516200828E2D /* Device.swift in Sources */,
 				EB0F92782244EED000095D11 /* AppCache.swift in Sources */,
 				EB4E3F2C223FAD1700867C28 /* Intents.intentdefinition in Sources */,
+				EB4C1D06224E1A3F00F60B4C /* SiriButtonViewController.swift in Sources */,
 				EB5114ED224130E200164F30 /* ViewController.swift in Sources */,
 				EB537CE5224A356A00828E2D /* CustomCell.swift in Sources */,
 				EB4E3F19223FACE600867C28 /* IntentViewController.swift in Sources */,
@@ -617,6 +625,7 @@
 		EB4E3F25223FACE600867C28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentUI/IntentUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA9P9633N5;
 				INFOPLIST_FILE = IntentUI/Info.plist;
@@ -636,6 +645,7 @@
 		EB4E3F26223FACE600867C28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentUI/IntentUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA9P9633N5;
 				INFOPLIST_FILE = IntentUI/Info.plist;

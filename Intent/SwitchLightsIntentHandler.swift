@@ -57,6 +57,8 @@ class SwitchLightsIntentHandler: NSObject, SwitchLightsIntentHandling{
         Shared.cache.devices = changedList
         if intent.powerState == .on{
             completion(SwitchLightsIntentResponse.success(deviceName: intent.deviceName!, powerState: .on))
+            
+            
         }
         else if intent.powerState == .off {
             completion(SwitchLightsIntentResponse.success(deviceName: intent.deviceName!, powerState: .off))

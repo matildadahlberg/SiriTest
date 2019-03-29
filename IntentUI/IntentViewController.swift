@@ -42,16 +42,14 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         }
         
         let width = self.extensionContext?.hostedViewMaximumAllowedSize.width ?? 320
-        let desiredSize = CGSize(width: width, height: 300)
+        let desiredSize = CGSize(width: width, height: 100)
 
-        
                         DispatchQueue.main.async {
                             
-                    
+                          
+  
                             
 //                            Shared.cache.lightState = self.switchOutlet.isOn
-//
-//                            
 //                            if Shared.cache.lightState == true{
 //                                self.switchOutlet.isOn = false
 //                                Shared.cache.lightState = false
@@ -59,15 +57,8 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
 //                            if Shared.cache.lightState == false{
 //                                self.switchOutlet.isOn = true
 //                                Shared.cache.lightState = true
-//
 //                            }
-                            
                         }
-       
-          
-        
         completion(true, parameters, desiredSize)
     }
-    
-    
 }

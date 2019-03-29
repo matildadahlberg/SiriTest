@@ -10,12 +10,14 @@ import UIKit
 import os
 import Intents
 import AVFoundation
+import IntentsUI
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var list = Shared.cache.devices
+    var valueToPass: Device?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,9 +26,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         tableView.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "cell")
-    
+        
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
             print("app did become active notification received")
             self?.tableView.reloadData()
@@ -55,16 +57,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label.text = list[indexPath.row].name
         cell.switchOutlet.isOn = list[indexPath.row].isOn
         
-        if Shared.cache.devices[indexPath.row].isOn == true {
-            
-            cell.switchOutlet.isOn = true
-            
-        } else {
-            cell.switchOutlet.isOn = false
-        }
+        //        if Shared.cache.devices[indexPath.row].isOn == true {
+        //
+        //            cell.switchOutlet.isOn = true
+        //
+        //        } else {
+        //            cell.switchOutlet.isOn = false
+        //        }
         
-        //        cell.switchOutlet.tag = indexPath.row
-        //        cell.switchOutlet.addTarget(self, action: #selector(self.switchState(_:)), for: .valueChanged)
+        cell.switchOutlet.tag = indexPath.row
+        cell.switchOutlet.addTarget(self, action: #selector(self.switchState(_:)), for: .valueChanged)
         
         return cell
     }
@@ -82,22 +84,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    
+  
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        print("You selected cell \(indexPath.row)!")
         
-        var aDevice = Shared.cache.devices[indexPath.row]
+        valueToPass = list[indexPath.row]
+        performSegue(withIdentifier: "segue", sender: self)
         
-        aDevice.isOn = !aDevice.isOn
-        donateInteraction(device: aDevice)
-        
-        Shared.cache.devices[indexPath.row] = aDevice
-        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segue") {
+            let viewController = segue.destination as! SiriButtonViewController
+            viewController.device = valueToPass!
+        }
     }
     
     
+    
+
+    
     func donateInteraction(device: Device) {
         let intent = SwitchLightsIntent()
-        intent.suggestedInvocationPhrase = "light"
+        intent.suggestedInvocationPhrase = "Turn on the light"
         intent.powerState = device.isOn ? .on : .off
         intent.deviceName = device.name
         
@@ -117,14 +128,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
     @IBAction func addButton(_ sender: Any) {
         
         let alertController = UIAlertController(title: "Add", message: "", preferredStyle: .alert)
         
         alertController.addTextField { (textfield) in
-            textfield.placeholder = "Lights"
+            textfield.placeholder = "Device.."
         }
         
         let done = UIAlertAction(title: "Done", style: .default) { (_) in
@@ -143,26 +152,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.dismiss(animated: true, completion: nil)
         }
         
-        
         alertController.addAction(done)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
-        
     }
     
     @objc func switchState(_ sender : UISwitch){
         
-        if sender.isOn == true {
-            sender.isOn = true
-            
-        }
-        else {
-            sender.isOn = false
-        }
+        var aDevice = Shared.cache.devices[sender.tag]
+        
+        aDevice.isOn = !aDevice.isOn
+        donateInteraction(device: aDevice)
+        
+        Shared.cache.devices[sender.tag] = aDevice
         
     }
+    
+  
+   
 }
-
-
-
-

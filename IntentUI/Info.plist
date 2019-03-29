@@ -26,6 +26,7 @@
 		<dict>
 			<key>IntentsSupported</key>
 			<array>
+				<string>AddShortcutIntent</string>
 				<string>SwitchLightsIntent</string>
 			</array>
 		</dict>
