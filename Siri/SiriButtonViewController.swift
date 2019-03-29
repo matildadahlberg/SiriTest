@@ -13,29 +13,19 @@ import IntentsUI
 class SiriButtonViewController: UIViewController {
 
     @IBOutlet weak var deviceName: UILabel!
-    
     @IBOutlet weak var buttonviewOn: UIView!
-    
     @IBOutlet weak var buttonviewOff: UIView!
     
     var device : Device?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
-            print("app did become active notification received")
-        }
-
+      
         deviceName.text = device?.name
         addSiriButton(to: buttonviewOn)
         siriButton(to: buttonviewOff)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        print(device?.isOn)
-        
-    }
-    
+ 
 
     func addSiriButton(to view: UIView) {
         let button = INUIAddVoiceShortcutButton(style: .whiteOutline)

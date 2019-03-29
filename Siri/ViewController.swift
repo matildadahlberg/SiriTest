@@ -36,21 +36,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
-            print("app did become active notification received")
-            self?.tableView.reloadData()
-        }
-        
+        tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
-            print("app did become active notification received")
-        }
-    }
-
+ 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -68,13 +57,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label.text = list[indexPath.row].name
         cell.switchOutlet.isOn = list[indexPath.row].isOn
         
-        //        if Shared.cache.devices[indexPath.row].isOn == true {
-        //
-        //            cell.switchOutlet.isOn = true
-        //
-        //        } else {
-        //            cell.switchOutlet.isOn = false
-        //        }
+                if Shared.cache.devices[indexPath.row].isOn == true {
+        
+                    cell.switchOutlet.isOn = true
+        
+                } else {
+                    cell.switchOutlet.isOn = false
+                }
         
         cell.switchOutlet.tag = indexPath.row
         cell.switchOutlet.addTarget(self, action: #selector(self.switchState(_:)), for: .valueChanged)
