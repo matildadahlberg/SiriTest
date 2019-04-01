@@ -18,6 +18,8 @@ import os
 // "Send a message using <myApp>"
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
+    
+    var device : Device?
 
     @IBOutlet weak var switchOutlet: UISwitch!
     @IBOutlet weak var label: UILabel!
@@ -46,19 +48,18 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
 
                         DispatchQueue.main.async {
                             
-                          
+                            self.label.text = self.device?.name
+                            
+                            if self.device?.isOn == true {
+                                self.switchOutlet.isOn = true
+                            } else {
+                                self.switchOutlet.isOn = false
+                            }
+                            
+        }
   
                             
-//                            Shared.cache.lightState = self.switchOutlet.isOn
-//                            if Shared.cache.lightState == true{
-//                                self.switchOutlet.isOn = false
-//                                Shared.cache.lightState = false
-//                            }
-//                            if Shared.cache.lightState == false{
-//                                self.switchOutlet.isOn = true
-//                                Shared.cache.lightState = true
-//                            }
-                        }
+
         completion(true, parameters, desiredSize)
     }
 }

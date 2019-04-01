@@ -74,15 +74,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
+           
             self.list.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+//            Shared.cache.removeObject(forKey: "devices")
             
-            Shared.cache.removeObject(forKey: "devices")
-            
+            Shared.cache.devices = list
+     
             print("Deleted")
             tableView.reloadData()
         }
     }
+    
+   
     
   
 
@@ -171,3 +176,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
    
 }
+
